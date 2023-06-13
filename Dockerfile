@@ -1,4 +1,4 @@
-FROM debian:stable-slim as builder
+FROM debian:bullseye-slim as builder
 
   RUN apt-get update \
       && apt-get install -y --no-install-recommends \
@@ -30,7 +30,7 @@ ARG DYNSIZE=16384
       && cd /opt/src/pgloader \
       && make DYNSIZE=$DYNSIZE clones save
 
-FROM debian:stable-slim
+FROM debian:bullseye-slim
 
   RUN apt-get update \
       && apt-get install -y --no-install-recommends \
